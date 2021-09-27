@@ -1,0 +1,1190 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+					function OptanonWrapper() { }
+				</script><script>var offline=(location.href.indexOf('docs.unity3d.com')==-1)?true:false;if(!offline){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);  })(window,document,'script','dataLayer','GTM-5V25JL6');}</script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Comparison of UI systems in Unity</title>
+<meta property="og:image" content="https://unity3d.com/files/images/ogimg.jpg">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://docs.unity3d.com/StaticFilesConfig/UnityVersionsInfo.js"></script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1631881794"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1631881794"></script><script type="text/javascript" src="docdata/toc.js?ts=1631881794"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1631881794"></script><link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1631881794">
+<link rel="stylesheet" href="../StaticFilesManual/css/prism.css">
+<script src="../StaticFilesManual/js/prism.js"></script><script src="/StaticFilesConfig/feedback/feedback.js"></script><script src="../StaticFilesManual/js/jquery.sidebar.min.js"></script><link rel="stylesheet" href="../StaticFilesManual/css/mobileoptimisation.css">
+<script src="../StaticFilesManual/js/mobileoptimisation.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="DocsAnalyticsData" data-area="authoring" data-pagetype="manual"></div>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="https://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="toggle version-number" id="VersionNumber" data-target=".otherversionscontent">
+                                Version: <b>2020.3</b><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">
+<ul id="OtherVersionsContentUl"></ul>
+<div id="otherVersionsLegend"><ul>
+<li>
+<div id="supportedColour" class="legendBox"></div>Supported</li>
+<li>
+<div id="notFoundColour" class="legendBox"></div>Legacy</li>
+</ul></div>
+</div>
+<div id="VersionSwitcherArrow" class="arrow versionSwitcherArrow"></div>
+</div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UI-system-compare.html">English</a></li>
+<li><a href="/cn/current/Manual/UI-system-compare.html">中文</a></li>
+<li><a href="/ja/current/Manual/UI-system-compare.html">日本語</a></li>
+<li><a href="/es/current/Manual/UI-system-compare.html">Español</a></li>
+<li><a href="/kr/current/Manual/UI-system-compare.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UI-system-compare.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div>
+<div class="mobileLogo"><a href="https://docs.unity3d.com"></a></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc" id="customScrollbar">
+<h2>Unity Manual</h2>
+<div class="search-form sidebar-search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" id="mobileSearchBtn" class="submit" value="Search">
+</form></div>
+<div class="toggle version-number sidebar-version-switcher" id="VersionNumber" data-target=".otherversionscontent"><form id="otherVersionsContentMobileForm"><div class="ui-field-contain">
+<label for="select-native-4">Version: 2020.3</label><select name="select-native-4" id="versionsSelectMobile"><option>Select a different version</option>
+<optgroup id="versionsWithThisPageMobile" label="Versions with this page"></optgroup>
+<optgroup id="versionsWithoutThisPageMobile" label="Versions without this page"></optgroup></select>
+</div></form></div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UI-system-compare.html">English</a></li>
+<li><a href="/cn/current/Manual/UI-system-compare.html">中文</a></li>
+<li><a href="/ja/current/Manual/UI-system-compare.html">日本語</a></li>
+<li><a href="/es/current/Manual/UI-system-compare.html">Español</a></li>
+<li><a href="/kr/current/Manual/UI-system-compare.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UI-system-compare.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html"> Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html"> Creating user interfaces (UI)</a></li>
+<li> Comparison of UI systems in Unity</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip"> Creating user interfaces (UI)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UIElements.html"></a></span><div class="tip"> UI Toolkit</div>
+</div>
+</div></div>
+<div id="_leavefeedback"></div>
+<h1>Comparison of UI systems in Unity</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity intends for <strong>UI</strong> Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support legacy projects.</p>
+
+<p>This page provides a high-level feature comparison of UI Toolkit, Unity UI, and IMGUI, and notes about their respective approaches to UI design. Use it to help determine which UI system is appropriate for your project.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">IMPORTANT</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">UI Toolkit is in active development. This page will update frequently as the feature set evolves.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>General considerations</h2>
+
+<h3>Type of UI: Editor or runtime</h3>
+
+<p>Your choice of UI system depends on whether you’re developing UI for the Unity Editor or runtime UI for a game or application.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Type of UI</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>Unity UI(uGUI)</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Runtime (debug)</strong></td>
+	<td style="text-align:left;">✔ *</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">This refers to temporary runtime UI used for debug purposes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Runtime (in-game)</strong></td>
+	<td style="text-align:left;">✔ *</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Not Recommended</td>
+	<td style="text-align:left;">For performance reasons, Unity does not recommend IMGUI for in-game runtime UI.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Unity Editor</strong></td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">You cannot use Unity UI to make UI for the Unity Editor.</td>
+</tr>
+</tbody>
+</table>
+
+<p>* <em>Requires the <a href="UIE-UITK-package.html">UI Toolkit package</a>, currently in preview.</em>
+</p>
+
+<p>To create runtime UI, your choice is between UI Toolkit and Unity UI (uGUI). See <a href="#feature-comparison-ui-toolkit-vs-unity-ui-ugui">Feature comparison: UI Toolkit vs. Unity UI (uGUI)</a>.</p>
+
+<p>To create UI for the Unity Editor, your choice is between UI Toolkit and IMGUI. See <a href="#feature-comparison-ui-toolkit-vs-imgui">Feature comparison: UI Toolkit vs. IMGUI</a>.</p>
+
+<h3>Roles and skill sets</h3>
+
+<p>Your team’s skill set and comfort level with different technologies is also an important consideration.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Type of user</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>Unity UI<br>(uGUI)</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Programmer</strong></td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Programmers can use any game development tool or API.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Technical Artist</strong></td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">Technical artists who are familiar with Unity’s GameObject-based tools and workflows are likely to be comfortable working with GameObjects, Components, and the Scene view. <br><br>They might not be comfortable with UI Toolkit’s web-like approach or IMGUI’s pure C# approach.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UI Designer</strong></td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">UI designers who are familiar with UI creation tools are likely to be comfortable with UI Toolkit’s document-based approach.<br><br>If they are not familiar with GameObject-based workflows, they might require help from programmers and/or level designers.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Innovation and development</h3>
+
+<p>UI Toolkit is in active development. Unity adds new features with each release. Unity UI and IMGUI are established UI systems that are production-proven, but updated infrequently.</p>
+
+<p>Unity UI and IMGUI might be better choices if you need features that are not yet available in UI Toolkit, or you plan on supporting or reusing older UI content.</p>
+
+<p><a name="feature-comparison-ui-toolkit-vs-unity-ui-ugui"></a></p>
+
+<h2>Feature comparison: UI Toolkit vs. Unity UI (uGUI)</h2>
+
+<p>This section compares UI Toolkit to Unity UI (along with the <a href="com.unity.textmeshpro.html">TextMesh Pro package</a>) for developing runtime UI for games and applications.</p>
+
+<ul>
+<li><a href="#unity-editor-ui-development">Unity Editor UI Development</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#styling">Styling</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#rendering">Rendering</a></li>
+<li><a href="#animation">Animation</a></li>
+<li><a href="#customizability">Customizability</a></li>
+</ul>
+
+<p><a name="unity-editor-ui-development"></a></p>
+
+<h3>Unity Editor UI Development</h3>
+
+<p>It is not possible to develop user interfaces for the Unity Editor using Unity UI.</p>
+
+<p><a name="workflow"></a></p>
+
+<h3>Workflow</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Nested Prefabs</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI Toolkit’s UXML templates support <a href="UIE-WritingUXMLTemplate.html#attribute-overrides">attribute overrides</a>, which are similar to modified properties in the Unity Prefab system.<br><br>UGUI is GameObject based, and supports standard Unity Prefabs.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">WYSIWYG authoring</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Unity UI and UI Toolkit offer very different WYSIWYG authoring experiences.<br><br> Because Unity UI is GameObject-based, you can set up the Scene view for WYSIWYG authoring. <br><br>UI Toolkit provides the <a href="com.unity.ui.builder.html">UI Builder package</a> (currently in preview) for document-based WYSIWYG UI authoring with a web-like workflow.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Theming</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">UI Toolkit roadmap includes support for theming functionality via the UI Builder and USS imports.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Layout &amp; Styling Debugger</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">You can debug Unity UI interfaces in the Inspector window. <br><br>UI Toolkit provides a dedicated debugger (menu: <strong>Window &gt; UI Toolkit &gt; Debugger</strong>) that is similar to debug tools found in major web browsers.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Scene integration</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Unity UI GameObjects are visible in the Scene view and the Game view.<br><br>You can integrate runtime UI created with the <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) via runtime components, and display it in the Game view.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="styling"></a></p>
+
+<h3>Styling</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Inline styles</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Cascading styles</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Pseudo-states (for example, hover or active)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Unity UI provides simple pseudo states, and you can create complex pseudo states for it using Unity’s Animation graph.<br><br>UI Toolkit supports <a href="UIE-USS-Selectors-Pseudo-Classes.html">pseudo-states</a> via USS.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Rich text tags</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Rich text tag support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.<br><br>Unity UI supports a basic set of rich text tags by default, and a larger set via the TextMesh Pro package.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">SDF text</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">SDF text support in UI Toolkit is planned as part of an overhaul of Unity’s text rendering backend. <br><br>Unity UI supports SDF text via the TextMesh Pro package.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Font fallbacks</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Support for font Assets and fallback fonts in UI Toolkit is planned as part of an overhaul of Unity’s text rendering backend.<br><br> Unity UI supports fallback fonts via the TextMesh Pro package.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="layout"></a></p>
+
+<h3>Layout</h3>
+
+<p>While Unity UI and UI Toolkit offer the same layout possibilities, their layout systems are quite different.</p>
+
+<ul>
+<li>With Unity UI, you control layout at the <span class="tooltip"><strong>GameObject</strong><span class="tooltiptext">The fundamental object in Unity scenes, which can represent characters, props, scenery, cameras, waypoints, and more. A GameObject’s functionality is defined by the Components attached to it. <a class="tooltipMoreInfoLink" href="class-GameObject.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#GameObject">Glossary</a></span></span></span> level, using RectTransForm components.</li>
+<li>With UI Toolkit, you define layout in USS stylesheets, using a more web-like Flexbox-based layout system.</li>
+</ul>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Manual layout (absolute or relative to parent)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">One-dimensional (horizontal and vertical)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Two-dimensional (grid)</td>
+	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Unity UI provides the <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest/index.html?subfolder=/manual/script-GridLayoutGroup.html">GridLayoutGroup</a> component.<br><br>For UI Toolkit, Unity is investigating the possibility of implementing CSS-style grids in USS.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="events"></a></p>
+
+<h3>Events</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Integration with Unity’s new <a href="com.unity.inputsystem.html">Input System</a>
+</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Serialized events</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI Toolkit can only bind events to elements in C#. <br><br>Unity UI can serialize event bindings.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Visual Scripting for events</td>
+	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="rendering"></a></p>
+
+<h3>Rendering</h3>
+
+<p>Choosing between UI Toolkit and Unity UI is a tradeoff between high performance and versatility/supported features.</p>
+
+<p>UI Toolkit currently supports a smaller set of capabilities, but is easier to optimize for rendering performance. It is document-based, data driven, and uses a single <span class="tooltip"><strong>shader</strong><span class="tooltiptext">A program that runs on the GPU. <a class="tooltipMoreInfoLink" href="Shaders.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Shader">Glossary</a></span></span></span>, material, and texture atlas to draw element hierarchies. It is a good choice for simple, screen space UI (for example, menus or heads-up displays) that includes complex hierarchies of elements, and performs well on any platform.</p>
+
+<p>Unity UI is more versatile, and supports advanced rendering and text features. You can set up any visual element with a custom material, and take advantage of advanced clipping and masking features. However, these features might make it difficult to keep more complex UI within your performance budgets.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Supported for <a href="built-in-render-pipeline.html">Built-in Render Pipeline</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Supported for <a href="universal-render-pipeline.html">Universal Render Pipeline (URP)</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Supported for <a href="high-definition-render-pipeline.html">High Definition Render Pipeline (HDRP)</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Screen-space (2D) rendering</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">World-space (3D) rendering</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Custom materials and shaders</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Shader Graph integration</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">SVG integration</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">The <a href="com.unity.vectorgraphics.html">com.unity.vectorgraphics</a> package provides SVG support for Unity UI. However the package is currently in preview, and is not recommended for production.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Anti-aliasing</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">Unity UI’s <strong>Screen Space-Camera</strong>, and <strong>World Space</strong> rendering modes use <span class="tooltip"><strong>Cameras</strong><span class="tooltiptext">A component which creates an image of a particular viewpoint in your scene. The output is either drawn to the screen or captured as a texture. <a class="tooltipMoreInfoLink" href="CamerasOverview.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a class="tooltipMoreInfoLink" href="Glossary.html#Camera">Glossary</a></span></span></span>, which apply <span class="tooltip"><strong>antialiasing</strong><span class="tooltiptext">A technique for decreasing artifacts, like jagged lines (jaggies), in images to make them appear smoother. <a href="PostProcessing-Antialiasing.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Antialiasing">Glossary</a></span></span></span>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2D rotation (object remains on the UI plane)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">3D rotation</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Rectangle clipping</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI toolkit supports rectangle clipping without rotation. The rectangle must be axis-aligned.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Mask clipping</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI toolkit supports mask clipping with 2D rotation.<br><br>Unity UI supports 3D mask rotation.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Nested masking</td>
+	<td style="text-align:left;">Partial/Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI toolkit’s nested masking is limited to one level, but does not affect draw-call batching. Multi-level nested masking is planned.<br><br>Unity UI supports up to eight levels of nested masking, but breaks draw call batching every second level.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="animation"></a></p>
+
+<h3>Animation</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Tweening workflow</td>
+	<td style="text-align:left;">Experimental</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Integration with <span class="tooltip"><strong>Animation Clips</strong><span class="tooltiptext">Animation data that can be used for animated characters or simple animations. It is a simple “unit” piece of motion, such as (one specific instance of) “Idle”, “Walk” or “Run”. <a class="tooltipMoreInfoLink" href="class-AnimationClip.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#AnimationClip">Glossary</a></span></span></span> and Timeline</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="customizability"></a></p>
+
+<h3>Customizability</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
+	<th style="text-align:left;">Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Open Source / Customizable</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">The <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="feature-comparison-ui-toolkit-vs-imgui"></a></p>
+
+<h2>Feature comparison: UI Toolkit vs. IMGUI</h2>
+
+<p>This section compares UI Toolkit to IMGUI for developing user interfaces for the Unity Editor.</p>
+
+<ul>
+<li><a href="#inspector-integration">Inspector integration</a></li>
+<li><a href="#controls-and-data-binding">Controls and data binding</a></li>
+<li><a href="#workflow-1">Workflow</a></li>
+<li><a href="#styling-1">Styling</a></li>
+<li><a href="#layout-1">Layout</a></li>
+<li><a href="#events-1">Events</a></li>
+<li><a href="#rendering-1">Rendering</a></li>
+<li><a href="#animation-1">Animation</a></li>
+<li><a href="#customizability-1">Customizability</a></li>
+</ul>
+
+<p><a name="inspector-integration"></a></p>
+
+<h3>Inspector integration</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Default <span class="tooltip"><strong>Inspectors</strong><span class="tooltiptext">A Unity window that displays information about the currently selected GameObject, asset or project settings, allowing you to inspect and edit the values. <a class="tooltipMoreInfoLink" href="UsingTheInspector.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Inspector">Glossary</a></span></span></span></td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">UI Toolkit will become the default UI backend for Inspector windows (for when a type does not have custom editors).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Inspector: Edit custom object types</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Inspector: Edit custom property types</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Inspector: Mixed values (multi-editing) support</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Array / list-view control</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="controls-and-data-binding"></a></p>
+
+<h3>Controls and data binding</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Tree View</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Grid View</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Graph View</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Data binding: Serialized properties</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Data binding from any C# type</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Data binding to any attribute or style value</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="workflow-1"></a></p>
+
+<h3>Workflow</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Nested <span class="tooltip"><strong>Prefabs</strong><span class="tooltiptext">An asset type that allows you to store a GameObject complete with components and properties. The prefab acts as a template from which you can create new object instances in the scene. <a class="tooltipMoreInfoLink" href="Prefabs.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Prefab">Glossary</a></span></span></span></td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">UI Toolkit’s UXML templates support <a href="UIE-WritingUXMLTemplate.html#attribute-overrides">attribute overrides</a>, which are similar to modified properties in the Unity Prefab system.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">WYSIWYG authoring</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">UI Toolkit provides the <a href="com.unity.ui.builder.html">UI Builder package</a> (currently in preview) for document-based WYSIWYG UI authoring with a web-like workflow.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Theming</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Layout &amp; Styling Debugger</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">IMGUI has a limited debugging tool for layouts and styles.<br><br> UI Toolkit provides a dedicated debugger (menu: <strong>Window &gt; UI Toolkit &gt; Debugger</strong>) that is similar to debug tools found in major web browsers.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><span class="tooltip"><strong>Scene View</strong><span class="tooltiptext">An interactive view into the world you are creating. You use the Scene View to select and position scenery, characters, cameras, lights, and all other types of Game Object. <a class="tooltipMoreInfoLink" href="UsingTheSceneView.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#SceneView">Glossary</a></span></span></span> integration</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="styling-1"></a></p>
+
+<h3>Styling</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Inline styles</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Cascading styles</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Pseudo-states (for example, hover or active)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Rich text tags</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">Rich text tag support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">SDF text</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">SDF text support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Font fallbacks</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="layout-1"></a></p>
+
+<h3>Layout</h3>
+
+<p>While Unity UI and IMGUI offer the same layout possibilities, their layout systems are quite different.</p>
+
+<ul>
+<li>IMGUI uses the C#-based GUILayout system.</li>
+<li>UI Toolkit uses a more web-like Flexbox-based layout system. You control layout via USS styles.</li>
+</ul>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Manual layout (absolute or relative to parent)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">One-dimensional (horizontal and vertical)</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Two-dimensional (grid)</td>
+	<td style="text-align:left;">In research</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">For UI Toolkit, Unity is investigating the possibility of implementing CSS-style grids in USS.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="events-1"></a></p>
+
+<h3>Events</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Integration with Unity’s new <a href="com.unity.inputsystem.html">Input System</a>
+</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Serialized events</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Visual Scripting for events</td>
+	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="rendering-1"></a></p>
+
+<h3>Rendering</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Supported for <a href="built-in-render-pipeline.html">Built-in Render Pipeline</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Supported for <a href="universal-render-pipeline.html">Universal Render Pipeline (URP)</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Supported for <a href="high-definition-render-pipeline.html">High Definition Render Pipeline (HDRP)</a>
+</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Screen-space (2D) rendering</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;">✔</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">World-space (3D) rendering</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;">While it is technically possible to create 3D UI in IMGUI using <code>GUI.matrix</code>, it is not recommended.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Custom materials and shaders</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Shader Graph integration</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">SVG integration</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Anti-aliasing</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="animation-1"></a></p>
+
+<h3>Animation</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Tweening workflow</td>
+	<td style="text-align:left;">Experimental</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Integration with Animation Clips and Timeline</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="customizability-1"></a></p>
+
+<h3>Customizability</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Feature</strong></th>
+	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>IMGUI</strong></th>
+	<th style="text-align:left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Open Source / Customizable</td>
+	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">The <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+<!-- area:authoring -->
+<div id="_content"></div>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip"> Creating user interfaces (UI)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UIElements.html"></a></span><div class="tip"> UI Toolkit</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2021 Unity Technologies. Publication Date: 2021-09-17.</div>
+<div class="menu">
+<a href="https://learn.unity.com/">Tutorials</a><a href="https://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="https://forum.unity3d.com">Forums</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

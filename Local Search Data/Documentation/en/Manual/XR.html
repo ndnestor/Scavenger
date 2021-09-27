@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+					function OptanonWrapper() { }
+				</script><script>var offline=(location.href.indexOf('docs.unity3d.com')==-1)?true:false;if(!offline){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);  })(window,document,'script','dataLayer','GTM-5V25JL6');}</script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  XR</title>
+<meta property="og:image" content="https://unity3d.com/files/images/ogimg.jpg">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://docs.unity3d.com/StaticFilesConfig/UnityVersionsInfo.js"></script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1631881794"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1631881794"></script><script type="text/javascript" src="docdata/toc.js?ts=1631881794"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1631881794"></script><link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1631881794">
+<link rel="stylesheet" href="../StaticFilesManual/css/prism.css">
+<script src="../StaticFilesManual/js/prism.js"></script><script src="/StaticFilesConfig/feedback/feedback.js"></script><script src="../StaticFilesManual/js/jquery.sidebar.min.js"></script><link rel="stylesheet" href="../StaticFilesManual/css/mobileoptimisation.css">
+<script src="../StaticFilesManual/js/mobileoptimisation.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="DocsAnalyticsData" data-area="platforms" data-pagetype="manual"></div>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="https://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="toggle version-number" id="VersionNumber" data-target=".otherversionscontent">
+                                Version: <b>2020.3</b><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">
+<ul id="OtherVersionsContentUl"></ul>
+<div id="otherVersionsLegend"><ul>
+<li>
+<div id="supportedColour" class="legendBox"></div>Supported</li>
+<li>
+<div id="notFoundColour" class="legendBox"></div>Legacy</li>
+</ul></div>
+</div>
+<div id="VersionSwitcherArrow" class="arrow versionSwitcherArrow"></div>
+</div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/XR.html">English</a></li>
+<li><a href="/cn/current/Manual/XR.html">中文</a></li>
+<li><a href="/ja/current/Manual/XR.html">日本語</a></li>
+<li><a href="/es/current/Manual/XR.html">Español</a></li>
+<li><a href="/kr/current/Manual/XR.html">한국어</a></li>
+<li><a href="/ru/current/Manual/XR.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div>
+<div class="mobileLogo"><a href="https://docs.unity3d.com"></a></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc" id="customScrollbar">
+<h2>Unity Manual</h2>
+<div class="search-form sidebar-search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" id="mobileSearchBtn" class="submit" value="Search">
+</form></div>
+<div class="toggle version-number sidebar-version-switcher" id="VersionNumber" data-target=".otherversionscontent"><form id="otherVersionsContentMobileForm"><div class="ui-field-contain">
+<label for="select-native-4">Version: 2020.3</label><select name="select-native-4" id="versionsSelectMobile"><option>Select a different version</option>
+<optgroup id="versionsWithThisPageMobile" label="Versions with this page"></optgroup>
+<optgroup id="versionsWithoutThisPageMobile" label="Versions without this page"></optgroup></select>
+</div></form></div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/XR.html">English</a></li>
+<li><a href="/cn/current/Manual/XR.html">中文</a></li>
+<li><a href="/ja/current/Manual/XR.html">日本語</a></li>
+<li><a href="/es/current/Manual/XR.html">Español</a></li>
+<li><a href="/kr/current/Manual/XR.html">한국어</a></li>
+<li><a href="/ru/current/Manual/XR.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html"> Unity User Manual 2020.3 (LTS)</a></li>
+<li> XR</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="udp-troubleshooting.html"></a></span><div class="tip"> UDP troubleshooting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AROverview.html"></a></span><div class="tip"> Getting started with AR development in Unity</div>
+</div>
+</div></div>
+<div id="_leavefeedback"></div>
+<h1>XR</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>New to XR development? Start here.</h2>
+
+<p>XR is an umbrella term that includes the following types of applications:</p>
+
+<ul>
+<li><span class="tooltip"><strong>Virtual Reality</strong><span class="tooltiptext">A system that immerses users in an artificial 3D world of realistic images and sounds, using a headset and motion tracking. <a class="tooltipMoreInfoLink" href="VROverview.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#VirtualReality">Glossary</a></span></span></span> (VR): The application simulates a completely different environment around the user.</li>
+<li>Mixed Reality (MR): The application combines its own environment with the user’s real-world environment and allows them to interact with each other.</li>
+<li>Augmented Reality (AR): The application layers content over a digital view of the real world.</li>
+</ul>
+
+<h2>Supported platforms</h2>
+
+<p>Unity works closely with strategic partners to make sure that creators have all the support they need when developing content for Unity’s supported platforms. This involves deep platform integration, Unity engine improvements, and <strong>XR</strong> tech stack optimizations for each platform.</p>
+
+<p>Unity supports these platforms for XR:</p>
+
+<ul>
+<li>ARKit</li>
+<li>ARCore</li>
+<li>Microsoft HoloLens</li>
+<li>Windows Mixed Reality</li>
+<li>Magic Leap</li>
+<li>Oculus</li>
+<li>OpenXR</li>
+<li>PlayStation VR</li>
+</ul>
+
+<p>Unity does not support XR on <span class="tooltip"><strong>WebGL</strong><span class="tooltiptext">A JavaScript API that renders 2D and 3D graphics in a web browser. The Unity WebGL build option allows Unity to publish content as JavaScript programs which use HTML5 technologies and the WebGL rendering API to run Unity content in a web browser. <a class="tooltipMoreInfoLink" href="webgl-gettingstarted.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#WebGL">Glossary</a></span></span></span>.</p>
+
+<h2>Unity XR plug-in framework</h2>
+
+<p>Unity has developed a new <span class="tooltip"><strong>plug-in</strong><span class="tooltiptext">A set of code created outside of Unity that creates functionality in Unity. There are two kinds of plug-ins you can use in Unity: Managed plug-ins (managed .NET assemblies created with tools like Visual Studio) and Native plug-ins (platform-specific native code libraries). <a class="tooltipMoreInfoLink" href="Plugins.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Plug-in">Glossary</a></span></span></span> framework called XR SDK that enables XR providers to integrate with the Unity engine and make full use of its features. This plug-in based approach improves Unity’s ability to make quick bug fixes, distribute SDK updates from platform partners, and to support new XR devices and runtimes without having to modify the core engine. To learn more about:</p>
+
+<ul>
+<li>How to upgrade to the new framework, see the <a href="configuring-project-for-xr.html">Configuring your Unity Project for XR</a> page.</li>
+<li>How the new framework functions, see the <a href="XRPluginArchitecture.html">XR plug-in framework</a> page.</li>
+</ul>
+
+<h2>AR development in Unity</h2>
+
+<p>The <a href="AROverview.html">AR overview</a> page details how to get started with creating an <span class="tooltip"><strong>AR</strong><span class="tooltiptext">Augmented Reality (AR) uses computer graphics or video composited on top of a live video feed to augment the view and create interaction with real and virtual objects.<br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#AR">Glossary</a></span></span></span> application, lists the packages you need to download, and offers related links to additional documentation. Unity recommends downloading the <strong>AR Template</strong> from the Unity Hub to create your application for Unity’s supported handheld and wearable AR devices.</p>
+
+<h2>VR development in Unity</h2>
+
+<p>The <a href="VROverview.html">VR overview</a> page details how to get started creating a VR application, lists the packages you need to download, and offers related links to additional documentation. To start, Unity recommends downloading the <strong>VR Template</strong> from the Unity Hub to create your application for Unity’s supported VR devices.</p>
+
+<h2>API usage examples</h2>
+
+<p>Thie AR Foundation Samples <a href="https://github.com/Unity-Technologies/arfoundation-samples">GitHub repository</a> contains examples of how to use Unity’s AR Foundation APIs.</p>
+
+<h2>Additional Unity resources</h2>
+
+<ul>
+<li><a href="https://learn.unity.com/search?k=%5B%22tag%3A5900b95a090915001e654b47%22%5D">AR/VR Tutorials on Unity Learn</a></li>
+<li><a href="https://forum.unity.com/forums/ar-vr-xr-discussion.80/">Unity AR/VR Forums</a></li>
+<li><a href="https://docs.unity3d.com/2019.3/Documentation/Manual/system-requirements.html#xr">XR Platform System Requirements</a></li>
+<li><a href="https://unity3d.com/what-is-xr-glossary">Glossary of XR-specific terms</a></li>
+<li><a href="https://docs.unity3d.com/Manual/SinglePassStereoRendering.html">Rendering for AR/VR</a></li>
+</ul>
+<!-- area:platforms -->
+<div id="_content"></div>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="udp-troubleshooting.html"></a></span><div class="tip"> UDP troubleshooting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AROverview.html"></a></span><div class="tip"> Getting started with AR development in Unity</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2021 Unity Technologies. Publication Date: 2021-09-17.</div>
+<div class="menu">
+<a href="https://learn.unity.com/">Tutorials</a><a href="https://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="https://forum.unity3d.com">Forums</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>
