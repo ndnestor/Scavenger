@@ -4,7 +4,7 @@ from lxml import html
 import glob
 
 
-documentation_path = 'D:/OneDrive - Rutgers University/Programming/Scavenger/Local Search Data/Documentation/en/ScriptReference/'
+documentation_path = 'D:/OneDrive - Rutgers University/Programming/Scavenger/local_search_data/Documentation/en/ScriptReference/'
 max_results = 10
 
 class UnitySearchModule(SearchModule):
@@ -29,7 +29,7 @@ class UnitySearchModule(SearchModule):
                 title_element = html_soup.find('h1', class_='heading inherit')
                 if title_element == None:
                     continue
-                title = title_element.get_text()
+                title = title_element.get_text().strip()
                 
                 # Get the preview text
                 html_tree = html.fromstring(file_contents)
