@@ -26,7 +26,12 @@ class Searcher(QObject):
             return
         
         self._query = query
-        print(len(searcher.search(query)))
+
+        search_results: list[dict] = searcher.search(query)
+
+        # Display search results
+        for search_result in search_results:
+            pass
 
 
 app = QGuiApplication(sys.argv)

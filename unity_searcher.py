@@ -16,7 +16,6 @@ class UnitySearchModule(SearchModule):
         return True
 
     def search(self, query: str) -> list[dict]:
-        print('Searching for ' + query)
         results: list[dict] = []
 
         file_paths: list[str] = glob.glob(documentation_path + "*" + query + '*.html', recursive=True)
@@ -46,8 +45,6 @@ class UnitySearchModule(SearchModule):
             if len(results) == max_results:
                 break
         
-        for result in results:
-            print(result['title'])
         return results
 
 def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
