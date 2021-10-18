@@ -3,9 +3,9 @@ from search_module import SearchModule
 from lxml import html
 import glob
 
-
+# TODO: Make path dynamic
 documentation_path = 'D:/OneDrive - Rutgers University/Programming/Scavenger/local_search_data/Documentation/en/ScriptReference/'
-max_results = 10
+max_results = 10 # TODO: Pull max results from settings
 
 class UnitySearchModule(SearchModule):
 
@@ -45,6 +45,7 @@ class UnitySearchModule(SearchModule):
             if len(results) == max_results:
                 break
         
+        # TODO: Don't return results without previews
         return results
 
 def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
@@ -63,7 +64,7 @@ def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
         # Add file name to collapsed list
         terms: list[str] = file_name.split('.')
         priority_value: int = None
-        for term in terms:            
+        for term in terms: # FIXME: Allow this to work with queries that include dots
             try:
                 possible_priority_value: int = term.lower().index(query.lower())
             except:
