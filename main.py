@@ -5,11 +5,14 @@ from types import FunctionType
 import searcher
 from unity_searcher import UnitySearchModule
 
+import hotkey_handler
+
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 from PySide6.QtCore import QObject, Property, QThread, Signal
 
 
+# Searcher setup
 searcher.register_search_module(UnitySearchModule())
 
 
@@ -21,7 +24,7 @@ class Searcher(QObject):
         self._search_results: list[dict] = []
         self._results_have_changed: bool = False
         self._cards: list = []
-        self.last_searched_query = ''
+        self.last_searched_query: str = ''
 
         def search_work() -> None:
             self._search_results = searcher.search(self.query)
@@ -68,7 +71,7 @@ class Searcher(QObject):
                 self.last_searched_query = query
                 self.search_thread.start()
 
-    
+
 class Worker(QObject):
     finished = Signal()
     
@@ -76,13 +79,12 @@ class Worker(QObject):
         super().__init__(parent)
         self.work = work
 
-    def run(self):
+    def run(self) -> None:
         self.work()
         self.finished.emit()
 
 
-
-
+# Qt application setup
 app = QGuiApplication(sys.argv)
 
 qmlRegisterType(Searcher, 'Searcher', 1, 0, 'Searcher')
@@ -92,4 +94,11 @@ engine.load(os.path.join(os.path.dirname(__file__), 'qml/main.qml'))
 
 if not engine.rootObjects():
     sys.exit(-1)
-sys.exit(app.exec())
+
+hotkey_handler.start()
+
+exit_code = app.exec()
+
+hotkey_handler.stop()
+
+sys.exit(exit_code)
