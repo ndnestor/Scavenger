@@ -1,10 +1,11 @@
 from bs4 import BeautifulSoup
 from search_module import SearchModule
+from lxml import etree
 from lxml import html
 import glob
 
 # TODO: Make path dynamic
-documentation_path = 'D:/OneDrive - Rutgers University/Programming/Scavenger/local_search_data/Documentation/en/ScriptReference/'
+documentation_path = './local_search_data/Documentation/en/ScriptReference/'
 max_results = 10 # TODO: Pull max results from settings
 
 class UnitySearchModule(SearchModule):
@@ -33,8 +34,21 @@ class UnitySearchModule(SearchModule):
                 
                 # Get the preview text
                 html_tree = html.fromstring(file_contents)
-                preview = html_tree.xpath('/html/body/div[3]/div[2]/div/div/div[1]/div[5]/p/text()')
-                if preview == None:
+                description_node = html_tree.xpath('/html/body/div[3]/div[2]/div/div/div[1]/div[5]/p/node()')
+                
+                preview = ''
+                for element in description_node:
+                    element_type = type(element)
+                    if element_type == etree._ElementUnicodeResult:
+                        preview += element
+                    elif element_type == html.HtmlElement:
+                        if element.text != None:
+                            preview += f'<code>{element.text}</code>'
+                        else:
+                            # TODO: Be more robust about this. Is there always a break tag when element.text == None?
+                            break
+
+                if description_node == None or preview == '':
                     preview = 'Preview not available'
                 
                 results.append({
