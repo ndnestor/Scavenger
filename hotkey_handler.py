@@ -1,9 +1,10 @@
 import os
 
 from ahk import AHK, Hotkey
+from ahk.directives import NoTrayIcon
 
 
-ahk = AHK()
+ahk = AHK(directives=[NoTrayIcon])
 
 toggle_visibility_key: str = '#n'
 pid: int = os.getpid()
@@ -53,7 +54,7 @@ left_button_hotkey = Hotkey(ahk, '~LButton', f'''
 
 ''')
 
-left_button_up_hotkey = Hotkey(ahk, 'LButton Up', 'Click, Up')
+left_button_up_hotkey = Hotkey(ahk, '~LButton Up', 'Click, Up')
 
 def start():
     toggle_visibility_hotkey.start()
