@@ -40,8 +40,6 @@ toggle_visibility_hotkey = Hotkey(ahk, toggle_visibility_key, f'''
 
 left_button_hotkey = Hotkey(ahk, '~LButton', f'''
 
-    Click, Down
-
     {get_visibility_snippet}
 
     if(visible) {{
@@ -54,14 +52,10 @@ left_button_hotkey = Hotkey(ahk, '~LButton', f'''
 
 ''')
 
-left_button_up_hotkey = Hotkey(ahk, '~LButton Up', 'Click, Up')
-
 def start():
     toggle_visibility_hotkey.start()
-    left_button_up_hotkey.start()
     left_button_hotkey.start()
 
 def stop():
     left_button_hotkey.stop()
-    left_button_up_hotkey.stop()
     toggle_visibility_hotkey.stop()
