@@ -10,6 +10,17 @@ ApplicationWindow {
     height: 500
     visible: true
     title: qsTr("Scavenger")
+    //flags: Qt.FramelessWindowHint
+
+    /*Component.onCompleted: {
+        var component = Qt.createComponent("result_viewer.qml")
+        if(component.status == Component.Error) {
+            console.debug("Error:" + component.errorString());
+            return
+        }
+        var win = component.createObject()
+        win.show()
+    }*/
 
     Material.theme: Material.Dark
     Material.accent: Material.LightBlue
@@ -26,6 +37,8 @@ ApplicationWindow {
     }
 
     Timer {
+        property var card_component: Qt.createComponent("card.qml")
+
         interval: 1
         running: true
         repeat: true
@@ -50,38 +63,12 @@ ApplicationWindow {
 
                 let parent = last_added_card ? last_added_card : searchField
 
-                last_added_card = Qt.createQmlObject(`
-                    import QtQuick;
-                    Rectangle {
-                        color: "black";
-                        width: window.width;
-                        height: 40;
-                        anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined;
-                        anchors.top: parent ? parent.bottom : undefined;
-                        anchors.topMargin: 2;
-
-                        Text {
-                            text: qsTr("${search_result['title']}");
-                            anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined;
-                            anchors.top: parent ? parent.top : undefined;
-                            anchors.topMargin: 5;
-                            horizontalAlignment: Text.AlignHCenter;
-                            verticalAlignment: Text.AlignVCenter;
-                            color: "white";
-                            font.pointSize: 10;
-                        }
-
-                        Text {
-                            text: qsTr("${search_result['preview']}");
-                            anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined;
-                            anchors.bottom: parent ? parent.bottom : undefined;
-                            anchors.bottomMargin: 5;
-                            horizontalAlignment: Text.AlignHCenter;
-                            verticalAlignment: Text.AlignVCenter;
-                            color: "white";
-                            font.pointSize: 10;
-                        }
-                    }`, parent)
+                last_added_card = card_component.createObject()
+                last_added_card.parent = parent
+                last_added_card.title = search_result['title']
+                last_added_card.preview = search_result['preview']
+                last_added_card.token = search_result['token']
+                
                 cards_added.push(last_added_card)
                 new_window_height += last_added_card.height + last_added_card.anchors.topMargin + last_added_card.anchors.bottomMargin
             })
