@@ -6,5 +6,8 @@ class SearchModule:
         print(self.name + ' failed to start')
         return False
 
-    def search(self, query: str):
+    def search(self, query: str) -> list[dict]:
+        pass  # Send error
+
+    def get(self, id: object) -> str:
         pass  # Send error

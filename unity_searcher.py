@@ -4,8 +4,9 @@ from lxml import etree
 from lxml import html
 import glob
 
-# TODO: Make path dynamic
+# TODO: Make paths dynamic
 documentation_path = './local_search_data/Documentation/en/ScriptReference/'
+css_path = './css/unity.css'
 max_results = 10 # TODO: Pull max results from settings
 
 class UnitySearchModule(SearchModule):
@@ -14,6 +15,9 @@ class UnitySearchModule(SearchModule):
         super().__init__("Unity Local Search")
 
     def setup(self) -> bool:
+        with open(css_path, encoding='utf-8') as css_file:
+            css: list[str] = '\n'.join(css_file.readlines())
+
         return True
 
     def search(self, query: str) -> list[dict]:
@@ -36,7 +40,7 @@ class UnitySearchModule(SearchModule):
                 html_tree = html.fromstring(file_contents)
                 description_node = html_tree.xpath('/html/body/div[3]/div[2]/div/div/div[1]/div[5]/p/node()')
                 
-                preview = ''
+                preview: str = ''
                 for element in description_node:
                     element_type = type(element)
                     if element_type == etree._ElementUnicodeResult:
@@ -53,7 +57,8 @@ class UnitySearchModule(SearchModule):
                 
                 results.append({
                     'title': title,
-                    'preview': preview
+                    'preview': preview,
+                    'token': file_path
                 })
 
             if len(results) == max_results:
@@ -99,3 +104,16 @@ def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
             sorted_file_paths.append(file_path)
     
     return sorted_file_paths
+
+    def get(self, id: str) -> str:
+        with open(id) as html_file:
+            html: str = html_file.readlines()
+        
+        # Inject CSS
+        html = html.split('<head>')
+        html[0] += '<head>'
+        html[0] += 'css'
+        html = html[0] + html[1]
+
+        return html
+
