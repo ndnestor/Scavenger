@@ -5,25 +5,27 @@ import QtQuick.Controls.Material
 import Searcher
 
 ApplicationWindow {
+    property var resultViewer;
+
     id: window
     width: 400
     height: 500
     visible: true
     title: qsTr("Scavenger")
     //flags: Qt.FramelessWindowHint
-
-    /*Component.onCompleted: {
-        var component = Qt.createComponent("result_viewer.qml")
-        if(component.status == Component.Error) {
-            console.debug("Error:" + component.errorString());
-            return
-        }
-        var win = component.createObject()
-        win.show()
-    }*/
-
     Material.theme: Material.Dark
     Material.accent: Material.LightBlue
+
+    Component.onCompleted: {
+        var component = Qt.createComponent("result_viewer.qml")
+        if(component.status == Component.Error) {
+            console.debug("Error: " + component.errorString());
+            return
+        }
+        var win = component.createObject(window)
+        resultViewer = win
+    }
+
 
     TextField {
         id: searchField

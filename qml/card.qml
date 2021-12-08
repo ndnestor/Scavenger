@@ -20,8 +20,8 @@ Rectangle {
             color: "#000000"
         }
         onClicked: {
-            print(parent.token)
-            print(window)
+            print("Clicked on a card")
+            window.resultViewer.show(token)
         }
 
         Text {
