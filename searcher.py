@@ -18,10 +18,22 @@ def register_search_module(search_module: SearchModule):
     search_modules.append(search_module)
 
 
-def search(query: str) -> list[dict]:
+def search(query: str) -> list: # TODO: Specify key value types in dict
     print('Searching for ' + query)
+    results: list = []
     for search_module in search_modules:
-        return search_module.search(query)
+        new_result: dict = search_module.search(query)
+        for card in new_result:
+            card['token'] = search_module.name + ':' + card['token']
+            results.append(card)
+    
+    return results
+
+
+def get(token: str) -> str:
+    for search_module in search_modules:
+        if search_module.name == token[:token.index(':')]:
+            return search_module.get(token[token.index(':') + 1:])
 
 
 class Searcher(QObject):
@@ -33,16 +45,31 @@ class Searcher(QObject):
         self._results_have_changed: bool = False
         self._cards: list = []
         self.last_searched_query: str = ''
+        self._selected_card_token: str = ''
+        self._selected_card_html: str = ''
 
         def search_work() -> None:
             self._search_results = search(self.query)
             self._results_have_changed = True
 
-        self.search_worker = Worker(search_work)
-        self.search_thread = QThread()
+        self.search_worker: Worker = Worker(search_work)
+        self.search_thread: QThread = QThread()
         self.search_worker.moveToThread(self.search_thread)
         self.search_thread.started.connect(self.search_worker.run)
         self.search_worker.finished.connect(self.search_thread.quit)
+
+    @Property(str)
+    def selected_card_token(self) -> str:
+        return self._selected_card_token
+    
+    @selected_card_token.setter
+    def selected_card_token(self, token: str) -> None:
+        self._selected_card_token = token
+        self._selected_card_html = get(token)
+    
+    @Property(str)
+    def selected_card_html(self) -> str:
+        return self._selected_card_html
 
     @Property(list)
     def cards(self) -> list:
@@ -90,5 +117,6 @@ class Worker(QObject):
     def run(self) -> None:
         self.work()
         self.finished.emit()
+
 
 qmlRegisterType(Searcher, 'Searcher', 1, 0, 'Searcher')

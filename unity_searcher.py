@@ -4,10 +4,12 @@ from lxml import etree
 from lxml import html
 import glob
 
+
 # TODO: Make paths dynamic
 documentation_path = './local_search_data/Documentation/en/ScriptReference/'
 css_path = './css/unity.css'
 max_results = 10 # TODO: Pull max results from settings
+
 
 class UnitySearchModule(SearchModule):
 
@@ -16,7 +18,7 @@ class UnitySearchModule(SearchModule):
 
     def setup(self) -> bool:
         with open(css_path, encoding='utf-8') as css_file:
-            css: list[str] = '\n'.join(css_file.readlines())
+            self.css: list[str] = '\n'.join(css_file.readlines())
 
         return True
 
@@ -67,6 +69,26 @@ class UnitySearchModule(SearchModule):
         # TODO: Don't return results without previews
         return results
 
+
+    def get(self, token: str) -> str:
+        with open(token, 'r', encoding='utf-8') as html_file:
+            file_contents: object = html_file.read()
+        
+        # Remove extra info
+        html_tree = etree.fromstring(file_contents)
+        for element in html_tree.xpath('/html/body/div[2]/div[1]/div/div[1]/div'):
+            element.getparent().remove(element)
+        file_contents = str(etree.tostring(html_tree, pretty_print=True, method='html'))
+        file_contents = file_contents.encode('ascii', 'ignore').decode('unicode_escape')[2:-1]
+        
+        # Inject CSS
+        file_contents = file_contents.split('<head>', 1)
+        file_contents[0] += f'<head>\n<style>\n{self.css}\n</style>\n'
+        html = '<!DOCTYPE html>\n' + file_contents[0] + file_contents[1]
+
+        return html
+
+
 def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
 
     sorted_file_paths_collapsed: list[list[str]] = []
@@ -104,16 +126,3 @@ def sort_file_paths(file_paths: list[str], query: str) -> list[str]:
             sorted_file_paths.append(file_path)
     
     return sorted_file_paths
-
-    def get(self, id: str) -> str:
-        with open(id) as html_file:
-            html: str = html_file.readlines()
-        
-        # Inject CSS
-        html = html.split('<head>')
-        html[0] += '<head>'
-        html[0] += 'css'
-        html = html[0] + html[1]
-
-        return html
-

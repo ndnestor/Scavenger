@@ -9,5 +9,5 @@ class SearchModule:
     def search(self, query: str) -> list[dict]:
         pass  # Send error
 
-    def get(self, id: object) -> str:
+    def get(self, token: str) -> str:
         pass  # Send error
